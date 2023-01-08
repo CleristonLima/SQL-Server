@@ -1,5 +1,7 @@
 CREATE DATABASE DBMedico;
 
+USE DBMedico;
+
 
 CREATE TABLE ESTADOS (ID_ESTADO INT NOT NULL PRIMARY KEY IDENTITY,
 					  NOME_ESTADO VARCHAR(100),
@@ -8,32 +10,92 @@ CREATE TABLE ESTADOS (ID_ESTADO INT NOT NULL PRIMARY KEY IDENTITY,
 );
 
 
-INSERT INTO ESTADOS (NOME_ESTADO, SIGLA_ESTADO, REGIAO) VALUES  ('Acre', 'AC', 'Norte'),
-								('Alagoas', 'AL', 'Nordeste'),
-								('Amapa', 'AP', 'Norte'),
-								('Amazonas', 'AM', 'Norte'),
-								('Bahia', 'BA', 'Nordeste'),
-								('Ceara', 'CE', 'Nordeste'),
-								('Distrito Federal', 'DF', 'Centro-Oeste'),
-								('Espirito Santos', 'ES', 'Sudeste'),
-								('Goias', 'GO', 'Cento-Oeste'),
-								('Maranhao', 'MA', 'Nordeste'),
-								('Mato Grosso', 'MT', 'Centro-Oeste'),
-								('Mato Grosso do Sul', 'MS', 'Centro-Oeste'),
-								('Minas Gerais', 'MG', 'Sudeste'),
-								('Para', 'PA', 'Norte'),
-								('Paraiba', 'PB', 'Nordeste'),
-								('Pernambuco', 'PE', 'Nordeste'),
-								('Piaui', 'PI', 'Nordeste'),
-								('Rio de Janeiro', 'RJ', 'Sudeste'),
-								('Rio Grande do Norte', 'RN', 'Nordeste'),
-								('Rio Grande do Sul', 'RS', 'Sul'),
-								('Rondonia', 'RO', 'Norte'),
-								('Roraima', 'RR', 'Norte'),
-								('Santa Catarina', 'SC', 'Sul'),
-								('Sao Paulo', 'SP', 'Sudeste'),
-								('Sergipe', 'SE', 'Nordeste'),
-								('Tocantins', 'TO', 'Norte');
+INSERT INTO ESTADOS (NOME_ESTADO, SIGLA_ESTADO, REGIAO) VALUES ('Acre', 'AC', 'Norte'),
+													   ('Alagoas', 'AL', 'Nordeste'),
+													   ('Amapa', 'AP', 'Norte'),
+													   ('Amazonas', 'AM', 'Norte'),
+													   ('Bahia', 'BA', 'Nordeste'),
+													   ('Ceara', 'CE', 'Nordeste'),
+													   ('Distrito Federal', 'DF', 'Centro-Oeste'),
+													   ('Espirito Santos', 'ES', 'Sudeste'),
+													   ('Goias', 'GO', 'Cento-Oeste'),
+													   ('Maranhao', 'MA', 'Nordeste'),
+													   ('Mato Grosso', 'MT', 'Centro-Oeste'),
+													   ('Mato Grosso do Sul', 'MS', 'Centro-Oeste'),
+													   ('Minas Gerais', 'MG', 'Sudeste'),
+													   ('Para', 'PA', 'Norte'),
+													   ('Paraiba', 'PB', 'Nordeste'),
+													   ('Pernambuco', 'PE', 'Nordeste'),
+													   ('Piaui', 'PI', 'Nordeste'),
+													   ('Rio de Janeiro', 'RJ', 'Sudeste'),
+													   ('Rio Grande do Norte', 'RN', 'Nordeste'),
+													   ('Rio Grande do Sul', 'RS', 'Sul'),
+													   ('Rondonia', 'RO', 'Norte'),
+													   ('Roraima', 'RR', 'Norte'),
+													   ('Santa Catarina', 'SC', 'Sul'),
+													   ('Sao Paulo', 'SP', 'Sudeste'),
+													   ('Sergipe', 'SE', 'Nordeste'),
+													   ('Tocantins', 'TO', 'Norte');
 													
 
 SELECT * FROM ESTADOS;
+
+CREATE TABLE DEPARTAMENTO (ID_DEPARTAMENTO INT NOT NULL PRIMARY KEY IDENTITY,
+							COD_DEPARTAMENTO VARCHAR(10),
+							NOME_DEPARTAMENTO VARCHAR(100),
+							INSERT_DATETIME DATE);
+
+
+SELECT * FROM DEPARTAMENTO;
+
+
+INSERT INTO DEPARTAMENTO (COD_DEPARTAMENTO, NOME_DEPARTAMENTO, INSERT_DATETIME)
+					VALUES('ADM', 'Administração', GETDATE()),
+						  ('RHI', 'Recursos Humanos I', GETDATE()),
+						  ('RHII', 'Recursos Humanos II', GETDATE()),
+						  ('GER001', 'Gerencia', GETDATE()),
+						  ('MED-I', 'Depto Medico I', GETDATE()),
+						  ('MED-II', 'Depto Medico II', GETDATE()),
+						  ('SEGCA', 'segurança', GETDATE()),
+						  ('IT', 'Tecnologia da Informacao', GETDATE()),
+						  ('FIN', 'Financeiro', GETDATE()),
+						  ('DIR', 'Diretoria', GETDATE()),
+						  ('LIMP', 'Limpeza e Manutenção', GETDATE());
+
+CREATE TABLE ESTADO_CIVIL (ID_ESTADO_CIVIL INT NOT NULL PRIMARY KEY IDENTITY,
+						   NOME_ESTADO_CIVIL VARCHAR(30),
+						   INSERT_DATETIME DATE);
+
+INSERT INTO ESTADO_CIVIL (NOME_ESTADO_CIVIL, INSERT_DATETIME)
+				  VALUES ('Casado', GETDATE()),
+						 ('Solteiro', GETDATE()),
+						 ('Viuvo(a)', GETDATE()),
+						 ('Divorciado', GETDATE()),
+						 ('Outros', GETDATE());
+
+SELECT * FROM ESTADO_CIVIL;
+
+CREATE TABLE CADASTRO_FUNCIONARIOS (MATRICULA INT NOT NULL PRIMARY KEY,
+				NATURALIDADE VARCHAR(100),
+				NOME VARCHAR(100),
+				ENDERECO VARCHAR(100),
+				CEP VARCHAR(10),
+				CIDADE VARCHAR(100),
+				ID_ESTADO_CIVIL INT,
+				ID_ESTADO INT,
+				ID_DEPARTAMENTO INT,
+				DATA_CONTRATACAO DATE,
+				INSERT_DATETIME DATE)
+
+SELECT * FROM CADASTRO_FUNCIONARIOS;
+
+ALTER TABLE CADASTRO_FUNCIONARIOS ADD CONSTRAINT ID_ESTA_CIVI_FK FOREIGN KEY (ID_ESTADO_CIVIL) REFERENCES ESTADO_CIVIL (ID_ESTADO_CIVIL);
+ALTER TABLE CADASTRO_FUNCIONARIOS ADD CONSTRAINT ID_ESTADO_FK FOREIGN KEY (ID_ESTADO) REFERENCES ESTADOS (ID_ESTADO);
+ALTER TABLE CADASTRO_FUNCIONARIOS ADD CONSTRAINT ID_DEP_FK FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO (ID_DEPARTAMENTO);
+
+ALTER TABLE CADASTRO_FUNCIONARIOS ADD EMAIL VARCHAR(50);
+ALTER TABLE CADASTRO_FUNCIONARIOS ADD TELEFONE VARCHAR(20);
+ALTER TABLE CADASTRO_FUNCIONARIOS ADD BAIRRO VARCHAR(50);
+
+INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+                            VALUES('6012451', 'Osasco', 'Jose da Silva Azevedo', 'Rua Tocantins, Nº 25', '084120-140', 'São Paulo', '1', '24', '11', '2019-10-08', GETDATE(), 'josesilva@gmail.com', '11952634422', 'Penha');
