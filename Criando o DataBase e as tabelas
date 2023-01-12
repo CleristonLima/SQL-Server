@@ -11,33 +11,34 @@ CREATE TABLE ESTADOS (ID_ESTADO INT NOT NULL PRIMARY KEY IDENTITY,
 
 
 INSERT INTO ESTADOS (NOME_ESTADO, SIGLA_ESTADO, REGIAO) VALUES ('Acre', 'AC', 'Norte'),
-('Alagoas', 'AL', 'Nordeste'),
-('Amapa', 'AP', 'Norte'),
-('Amazonas', 'AM', 'Norte'),
-('Bahia', 'BA', 'Nordeste'),
-('Ceara', 'CE', 'Nordeste'),
-('Distrito Federal', 'DF', 'Centro-Oeste'),
-('Espirito Santos', 'ES', 'Sudeste'),
-('Goias', 'GO', 'Cento-Oeste'),
-('Maranhao', 'MA', 'Nordeste'),
-('Mato Grosso', 'MT', 'Centro-Oeste'),
-('Mato Grosso do Sul', 'MS', 'Centro-Oeste'),
-('Minas Gerais', 'MG', 'Sudeste'),
-('Para', 'PA', 'Norte'),
-('Paraiba', 'PB', 'Nordeste'),
-('Pernambuco', 'PE', 'Nordeste'),
-('Piaui', 'PI', 'Nordeste'),
-('Rio de Janeiro', 'RJ', 'Sudeste'),
-('Rio Grande do Norte', 'RN', 'Nordeste'),
-('Rio Grande do Sul', 'RS', 'Sul'),
-('Rondonia', 'RO', 'Norte'),
-('Roraima', 'RR', 'Norte'),
-('Santa Catarina', 'SC', 'Sul'),
-('Sao Paulo', 'SP', 'Sudeste'),
-('Sergipe', 'SE', 'Nordeste'),
-('Tocantins', 'TO', 'Norte');
-													
+													   ('Alagoas', 'AL', 'Nordeste'),
+													   ('Amapa', 'AP', 'Norte'),
+													   ('Amazonas', 'AM', 'Norte'),
+													   ('Bahia', 'BA', 'Nordeste'),
+													   ('Ceara', 'CE', 'Nordeste'),
+													   ('Distrito Federal', 'DF', 'Centro-Oeste'),
+													   ('Espirito Santos', 'ES', 'Sudeste'),
+													   ('Goias', 'GO', 'Cento-Oeste'),
+													   ('Maranhao', 'MA', 'Nordeste'),
+													   ('Mato Grosso', 'MT', 'Centro-Oeste'),
+													   ('Mato Grosso do Sul', 'MS', 'Centro-Oeste'),
+													   ('Minas Gerais', 'MG', 'Sudeste'),
+													   ('Para', 'PA', 'Norte'),
+													   ('Paraiba', 'PB', 'Nordeste'),
+													   ('Pernambuco', 'PE', 'Nordeste'),
+													   ('Piaui', 'PI', 'Nordeste'),
+													   ('Rio de Janeiro', 'RJ', 'Sudeste'),
+													   ('Rio Grande do Norte', 'RN', 'Nordeste'),
+													   ('Rio Grande do Sul', 'RS', 'Sul'),
+													   ('Rondonia', 'RO', 'Norte'),
+													   ('Roraima', 'RR', 'Norte'),
+													   ('Santa Catarina', 'SC', 'Sul'),
+													   ('Sao Paulo', 'SP', 'Sudeste'),
+													   ('Sergipe', 'SE', 'Nordeste'),
+													   ('Tocantins', 'TO', 'Norte');
 
+INSERT INTO ESTADOS (NOME_ESTADO, SIGLA_ESTADO, REGIAO) values ('Parana', 'PN', 'Sul');
+													
 SELECT * FROM ESTADOS;
 
 CREATE TABLE DEPARTAMENTO (ID_DEPARTAMENTO INT NOT NULL PRIMARY KEY IDENTITY,
@@ -100,11 +101,57 @@ ALTER TABLE CADASTRO_FUNCIONARIOS ADD BAIRRO VARCHAR(50);
 INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
                             VALUES('6012451', 'Osasco', 'Jose da Silva Azevedo', 'Rua Tocantins, Nº 25', '084120-140', 'São Paulo', '1', '24', '11', '2019-10-08', GETDATE(), 'josesilva@gmail.com', '11952634422', 'Penha');
 
-INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+							INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
                             VALUES('6012452', 'Rio de Janeiro', 'Maria costa dos Santos', 'Av da Liberdade, Nº 70 apto 25', '04578-000', 'São Paulo', '1', '24', '9', '2017-02-22', GETDATE(), 'mcsantos@hotmail.com', '21985627788', 'Liberdade');
 
-INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+							INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
                             VALUES('6012453', 'Salvador', 'Calos Augusto da Silva', 'Rua Noruega, Nº 30', '02014-852', 'Salvador', '2', '5', '5', '2016-05-30', GETDATE(), 'drcalos@gmail.com', '61955742632', 'Fonte nova');
 
-INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+							INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
                             VALUES('6012454', 'Viamao', 'Raimundos Aparecido jorge', 'Avenida das fronteiras, S/N', '14275-553', 'Porto Alegre', '3', '20', '11', '2011-11-04', GETDATE(), 'Raimundosouza@gmail.com', '51948752255', 'Tristeza');
+						
+							INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+                            VALUES('6012455', 'Recife', 'Carina da silva Borges', 'Rua da comunhão, Nº 80, bloco L ap 52', '04280-190', 'Recife', '2', '16', '3', '2016-10-02', GETDATE(), 'carinaborges@hotmail.com', '81956217568', 'Boa viagem');
+
+							INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+                            VALUES('6012456', 'Curitiba', 'Geraldo da Silva Souza', 'Avenida Palmas, 32', '04512-895', 'Curitiba', '4', '27', '8', '2022-04-29', GETDATE(), 'geraldosilva@hotmail.com', '41951945634', 'Couto Pereira');
+
+							INSERT INTO CADASTRO_FUNCIONARIOS (MATRICULA, NATURALIDADE, NOME, ENDERECO, CEP, CIDADE, ID_ESTADO_CIVIL, ID_ESTADO, ID_DEPARTAMENTO, DATA_CONTRATACAO, INSERT_DATETIME, EMAIL, TELEFONE, BAIRRO)
+                            VALUES('6012457', 'Sao Paulo', 'Marcio da silva santos', 'Rua Henrique queiroz, Nº 30', '02513-592', 'São Paulo', '2', '24', '11', '2019-02-18', GETDATE(), null, '11975112295', 'Itaquera');
+
+
+CREATE TABLE DOUTORES (ID_MEDICO INT NOT NULL PRIMARY KEY IDENTITY,
+					   CRM VARCHAR(20) UNIQUE,
+					   ID_DEPARTAMENTO INT,
+					   NOME_MEDICO VARCHAR(100),
+					   ESPECIALIDADE VARCHAR(100),
+					   DATA_VENC_CRM DATE,
+					   INSERT_DATETIME DATETIME,
+					   UPDATE_DATETIME DATETIME);
+
+SELECT * FROM DOUTORES
+
+ALTER TABLE DOUTORES ADD CONSTRAINT ID_DEPMC_FK FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO (ID_DEPARTAMENTO);
+
+INSERT INTO DOUTORES (CRM, ID_DEPARTAMENTO, NOME_MEDICO, ESPECIALIDADE, DATA_VENC_CRM, INSERT_DATETIME, UPDATE_DATETIME)
+			   VALUES ('084560-SP', '5', 'Claudia Silva de Souza', 'Clinico Geral', '2025-08-23', GETDATE(), NULL),
+					 ('048721-SP', '6', 'Geraldo costa azevedo', 'Ortopedista', '2025-03-03', GETDATE(), NULL),
+					 ('152458-RJ', '5', 'Marcelo Xavier da Silva Acarapi Nino', 'Urologista', '2025-10-11', GETDATE(), NULL),
+					 ('184572-PE', '6', 'Ana Clara De Souza', 'Ginecologista', '2025-10-11', GETDATE(), NULL)
+
+
+CREATE TABLE PACIENTES (ID_PACIENTE INT NOT NULL PRIMARY KEY IDENTITY,
+						NOME_PACIENTE VARCHAR(100),
+						RG_PAC VARCHAR(20),
+						CPF_PAC VARCHAR(15) UNIQUE,
+						END_PAC VARCHAR(100),
+						CEP_PAC VARCHAR(10),
+						BAIRRO_PAC VARCHAR(50),
+						ID_ESTADO_CIVIL_PAC INT,
+						ID_ESTADO_PAC INT,
+						SINTOMAS VARCHAR(200),
+						ID_MEDICO INT,
+						INSERT_DATETIME DATE,
+						UPDATE_DATETIME DATE);
+
+SELECT * FROM PACIENTES;
