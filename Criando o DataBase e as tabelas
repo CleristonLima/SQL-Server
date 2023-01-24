@@ -155,3 +155,23 @@ CREATE TABLE PACIENTES (ID_PACIENTE INT NOT NULL PRIMARY KEY IDENTITY,
 						UPDATE_DATETIME DATE);
 
 SELECT * FROM PACIENTES;
+
+USE DBMedico;
+
+
+SELECT * FROM PACIENTES;
+
+ALTER TABLE PACIENTES ADD CONSTRAINT ID_MEDIC FOREIGN KEY (ID_MEDICO) REFERENCES DOUTORES (ID_MEDICO);
+
+ALTER TABLE PACIENTES ADD ESTADO_PAC VARCHAR(100);
+
+ALTER TABLE PACIENTES DROP COLUMN ESTADO_PAC;
+
+ALTER TABLE PACIENTES ADD CIDADE_PAC VARCHAR(100);
+
+
+INSERT INTO PACIENTES (NOME_PACIENTE, RG_PAC, CPF_PAC, END_PAC, CEP_PAC, BAIRRO_PAC, ID_ESTADO_CIVIL_PAC, ID_ESTADO_PAC, SINTOMAS, ID_MEDICO, INSERT_DATETIME, UPDATE_DATETIME, CIDADE_PAC)
+             values ('Vincente Costa', '425785521-8', '1125565472582', 'Rua quinta da magnolia, nº 75', '08465-110', 'Penha', '1', '24', 'Febre Dor de Garganta Dor de Barriga', '1', GETDATE(), null, 'São Paulo'),
+					('Maria Silva', '1245258-9', '45265844525', 'Rua Paulo Fonseca, nº 44', '14525-120', 'Recreio dos bandeirantes', '1', '18', 'Tosse e catarro no pulmão', '2', GETDATE(), null, 'Rio De Janeiro'),
+					('Carmem Souza', '30148524-8', '124522325565', 'Avenida Espanha', '45621-899', 'Vila Madalena', '2', '5', 'Colica', '4', GETDATE(), null, 'Salvador'),
+					('Paulo Souza', '304521585-9', '1452326578955', 'Rua França, S/N', '12542-893', 'São Jose', '3', '26', 'Dores nas Pernas', '2', GETDATE(), null, 'Porto Alegre');
