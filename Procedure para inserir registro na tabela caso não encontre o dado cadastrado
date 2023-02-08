@@ -2,7 +2,7 @@
 
 USE DBMedico;
 
-------- Comando para DROPAR a procedure
+------- Comando para dar um Drop na Procedure
 
 DROP PROCEDURE PRC_VERIFICAR_MEDICO_EXISTE;
 
